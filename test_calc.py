@@ -1,5 +1,6 @@
 import unittest
 import string_calc
+from MyExceptions import NegativeValueException
 
 class TestCalc(unittest.TestCase):
     def test_sum_of_numbers(self):
@@ -16,6 +17,11 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(string_calc.add("a,b"),3)
         self.assertEqual(string_calc.add("1,2,y,z"),54)
 
+    def test_no_negative(self):
+        self.assertRaises(NegativeValueException,string_calc.add,"-1")
+        self.assertRaises(NegativeValueException,string_calc.add,"-2")
+        self.assertRaises(NegativeValueException,string_calc.add,"1,2,-3,d")
+        self.assertRaises(NegativeValueException,string_calc.add,"-1,-2")
 
 if __name__ == '__main__':
     unittest.main()
