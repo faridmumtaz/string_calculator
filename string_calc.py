@@ -10,9 +10,14 @@ def add(numbers):
     if numbers == "":
         return 0
     if len(re.findall("//.\n",numbers)) != 0:
-        delim = numbers[2]
-        numbers = numbers[4:]
+        sign = numbers[0]
+        delim = numbers[re.search(r'//',numbers).end()]
+        numbers = numbers[re.search(r'//.\n',numbers).end():]
         numbers = re.split(",|\n|"+delim,numbers)
+        if sign == "0":
+            numbers = [numbers[i] for i in range(len(numbers)) if i%2==1]
+        if sign == "1":
+            numbers = [numbers[i] for i in range(len(numbers)) if i%2==0]
     else:
         numbers = re.split(",|\n",numbers)
     for n in numbers:

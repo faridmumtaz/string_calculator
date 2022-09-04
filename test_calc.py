@@ -37,8 +37,13 @@ class TestCalc(unittest.TestCase):
 
     def test_different_delimiters(self):
         self.assertEqual(string_calc.add("//;\n1;2"),3)
-        self.assertEqual(string_calc.add("//]\n1]b]3"),6)
+        self.assertEqual(string_calc.add("//]\n1]b]3,4"),10)
         self.assertEqual(string_calc.add("//@\n1@b\n3,5000@z"),32)
+
+    def test_even_odd_sum(self):
+        self.assertEqual(string_calc.add("0//!\n2!8!3,3!9"),11)
+        self.assertEqual(string_calc.add("1//!\n2,8,3!3,9"),14)
+        self.assertEqual(string_calc.add("1//#\n6,900#33\n3000#i,10"),48)
 
 if __name__ == '__main__':
     unittest.main()
