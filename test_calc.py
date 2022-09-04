@@ -23,5 +23,9 @@ class TestCalc(unittest.TestCase):
         self.assertRaises(NegativeValueException,string_calc.add,"1,2,-3,d")
         self.assertRaises(NegativeValueException,string_calc.add,"-1,-2")
 
+    def test_multiple_negatives(self):
+        self.assertRaises(NegativeValueException,string_calc.add,"-2,-1")
+        self.assertRaises(NegativeValueException,string_calc.add,"a,4,-4,8,-8,-12")
+
 if __name__ == '__main__':
     unittest.main()
