@@ -27,5 +27,9 @@ class TestCalc(unittest.TestCase):
         self.assertRaises(NegativeValueException,string_calc.add,"-2,-1")
         self.assertRaises(NegativeValueException,string_calc.add,"a,4,-4,8,-8,-12")
 
+    def test_ignore_1000_plus(self):
+        self.assertEqual(string_calc.add("2022"),0)
+        self.assertEqual(string_calc.add("1,2,1001"),3)
+
 if __name__ == '__main__':
     unittest.main()

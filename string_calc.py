@@ -13,6 +13,8 @@ def add(numbers):
     for n in numbers:
         if n in string.ascii_lowercase:
             sum += string.ascii_lowercase.index(n) + 1
+        elif int(n) > 1000:
+            pass
         else:
             if int(n) < 0:
                 neg_nums.append(int(n))
