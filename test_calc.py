@@ -10,5 +10,12 @@ class TestCalc(unittest.TestCase):
     def test_unknown_amount_of_numbers(self):
         self.assertEqual(string_calc.add("8,17,244,690,812,990"),2761)
 
+    def test_include_alphabets(self):
+        self.assertEqual(string_calc.add("a"),1)
+        self.assertEqual(string_calc.add("b"),2)
+        self.assertEqual(string_calc.add("a,b"),3)
+        self.assertEqual(string_calc.add("1,2,y,z"),54)
+
+
 if __name__ == '__main__':
     unittest.main()
