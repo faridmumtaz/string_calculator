@@ -31,5 +31,9 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(string_calc.add("2022"),0)
         self.assertEqual(string_calc.add("1,2,1001"),3)
 
+    def test_newline_delimiter(self):
+        self.assertEqual(string_calc.add("1\n2,3"),6)
+        self.assertEqual(string_calc.add("3\na,d\n4,1500"),12)
+
 if __name__ == '__main__':
     unittest.main()

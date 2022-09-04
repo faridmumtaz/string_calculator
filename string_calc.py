@@ -9,7 +9,7 @@ def add(numbers):
     neg_nums = []
     if numbers == "":
         return 0
-    numbers = re.split(",",numbers)
+    numbers = re.split(",|\n",numbers)
     for n in numbers:
         if n in string.ascii_lowercase:
             sum += string.ascii_lowercase.index(n) + 1
