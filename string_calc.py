@@ -9,7 +9,12 @@ def add(numbers):
     neg_nums = []
     if numbers == "":
         return 0
-    numbers = re.split(",|\n",numbers)
+    if len(re.findall("//.\n",numbers)) != 0:
+        delim = numbers[2]
+        numbers = numbers[4:]
+        numbers = re.split(",|\n|"+delim,numbers)
+    else:
+        numbers = re.split(",|\n",numbers)
     for n in numbers:
         if n in string.ascii_lowercase:
             sum += string.ascii_lowercase.index(n) + 1

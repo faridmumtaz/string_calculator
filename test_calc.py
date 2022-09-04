@@ -35,5 +35,10 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(string_calc.add("1\n2,3"),6)
         self.assertEqual(string_calc.add("3\na,d\n4,1500"),12)
 
+    def test_different_delimiters(self):
+        self.assertEqual(string_calc.add("//;\n1;2"),3)
+        self.assertEqual(string_calc.add("//]\n1]b]3"),6)
+        self.assertEqual(string_calc.add("//@\n1@b\n3,5000@z"),32)
+
 if __name__ == '__main__':
     unittest.main()
